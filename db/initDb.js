@@ -1,12 +1,14 @@
 const moongose = require("mongoose");
 //sigleton approach for database initialization
 class mongoDatabase {
+  
   connection = moongose.connection;
   options = {
     serverSelectionTimeoutMS: 5000,
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
+
   constructor() {
     try {
       //open event fires when connection is successfull

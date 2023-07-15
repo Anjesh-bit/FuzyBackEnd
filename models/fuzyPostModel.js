@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const fuzyPostModelSchema = new Schema({
   fuzyUser: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "fuzyusers",
+    ref: "fuzy_users",
     required: true,
   },
   uploadImg: {
-    type: String,
+    type: Object,
     required: true,
   },
   likesCount: {
@@ -16,12 +17,13 @@ const fuzyPostModelSchema = new Schema({
   },
   likedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "fuzyusers",
+    ref: "fuzy_users",
   },
   fuzyCaption: {
     type: String,
     default: "",
   },
 });
-const fuzyPostModel = mongoose.model("posts", fuzyPostModelSchema);
+
+const fuzyPostModel = mongoose.model("fuzy_posts", fuzyPostModelSchema);
 module.exports = fuzyPostModel;
