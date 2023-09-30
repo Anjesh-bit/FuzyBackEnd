@@ -38,11 +38,11 @@ const followingUser = asyncHandler(async (req, res, next) => {
 
     await fuzyUserModal.updateOne(
       { _id: currentUserId },
-      { $addToSet: { following: follow._id } }
+      { $addToSet: { following: followModel._id } }
     );
     await fuzyUserModal.updateOne(
       { _id: targetUserId },
-      { $addToSet: { followers: follow._id } }
+      { $addToSet: { followers: followModel._id } }
     );
   } catch (error) {
     res
